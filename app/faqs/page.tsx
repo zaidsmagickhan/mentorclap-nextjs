@@ -186,6 +186,7 @@ import { apiGet } from "@/lib/api/ApiService";
 import Pagination from "@/component/pagination/Pagination";
 import Filters from "./Filters";
 import ArticleCard from "./ArticleCard";
+import { PAGE_SIZE } from "@/lib/constants/base";
 
 // Types
 interface Article {
@@ -193,7 +194,7 @@ interface Article {
     slug: string;
     title: string;
     content: string;
-    category: "student" | "teacher" | "general";
+    category: "student" | "teacher";
     created_at: string;
     updated_at: string;
     video_id?: string;
@@ -272,11 +273,12 @@ async function ArticleListContent({ searchParams }: ArticleListProps) {
         }
 
         const response = await apiGet(url);
+        console.log("API Response:", response);
         const articles: Article[] = response.results || [];
         const pagination: PaginationInfo = {
             count: response.count || 0,
             currentPage: parseInt(page),
-            totalPages: Math.ceil((response.count || 0) / 10),
+            totalPages: Math.ceil((response.count || 0) / PAGE_SIZE),
         };
 
         // Clean params for display (remove page=1)

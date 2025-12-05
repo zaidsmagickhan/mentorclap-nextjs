@@ -3,6 +3,7 @@ import Link from "next/link";
 import { apiGet } from "@/lib/api/ApiService";
 import Pagination from "@/component/pagination/Pagination";
 import SearchForm from "./SearchForm";
+import { PAGE_SIZE } from "@/lib/constants/base";
 
 // Types for TypeScript
 interface Blog {
@@ -47,7 +48,7 @@ async function BlogListContent({ searchParams }: BlogListProps) {
         const pagination: PaginationInfo = {
             count: response.count,
             currentPage: parseInt(page),
-            totalPages: Math.ceil(response.count / 10),
+            totalPages: Math.ceil((response.count || 0) / PAGE_SIZE),
         };
 
         return (
