@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { apiGet } from "@/lib/api/ApiService";
 import { ArrowLeft } from "lucide-react";
-import ShareMenu from "./ShareMenu";
+import ShareMenu from "@/component/shared/SharedMenu";
 
 // Types
 interface Blog {
@@ -120,7 +120,8 @@ export default async function BlogDetail({ params }: BlogDetailProps) {
                 <ShareMenu
                     url={shareUrl}
                     title={shareTitle}
-                    image={shareImage}
+                    type="blog"
+                    variant="default" // or whatever variant you need
                 />
             </div>
 
@@ -168,8 +169,8 @@ export default async function BlogDetail({ params }: BlogDetailProps) {
                             <ShareMenu
                                 url={shareUrl}
                                 title={shareTitle}
-                                image={shareImage}
-                                variant="mobile"
+                                type="blog"
+                                variant="mobile" // or whatever variant you need
                             />
                         </div>
                     </div>
@@ -205,8 +206,8 @@ export default async function BlogDetail({ params }: BlogDetailProps) {
                 <ShareMenu
                     url={shareUrl}
                     title={shareTitle}
-                    image={shareImage}
-                    variant="large"
+                    type="blog"
+                    variant="large" // or whatever variant you need
                 />
             </div>
         </div>
