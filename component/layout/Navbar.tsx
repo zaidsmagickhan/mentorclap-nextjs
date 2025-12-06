@@ -23,7 +23,7 @@ export default async function Navbar() {
                     {/* Logo */}
                     <div className="shrink-0">
                         <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-gray-600">
-                            My Blog
+                            MentorClap V2
                         </Link>
                     </div>
 
@@ -32,17 +32,23 @@ export default async function Navbar() {
                         {/* Navigation Links */}
                         <div className="flex items-center space-x-6">
                             <Link
-                                href="/blog"
+                                href="/blogs"
                                 className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
                             >
-                                Blog
+                                Blogs
                             </Link>
                             <Link
+                                href="/faqs"
+                                className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+                            >
+                                FAQs
+                            </Link>
+                            {/* <Link
                                 href="/dashboard"
                                 className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
                             >
                                 Dashboard
-                            </Link>
+                            </Link> */}
                         </div>
 
                         {/* User Section */}
@@ -166,13 +172,22 @@ async function MobileMenu({ user }: { user: any }) {
                     {/* Mobile Navigation Links */}
                     <div className="space-y-1 py-2">
                         <Link
-                            href="/blog"
+                            href="/blogs"
                             className="flex items-center space-x-2 px-2 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors"
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                             </svg>
                             <span>Blog</span>
+                        </Link>
+                        <Link
+                            href="/faqs"
+                            className="flex items-center space-x-2 px-2 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md transition-colors"
+                        >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                            </svg>
+                            <span>FAQs</span>
                         </Link>
 
                         <Link
