@@ -182,11 +182,11 @@
 
 import { Metadata } from "next";
 import { Suspense } from "react";
-import { apiGet } from "@/lib/api/ApiService";
-import Pagination from "@/component/pagination/Pagination";
+import { apiGet } from "@/src/services/ApiService";
+import Pagination from "@/src/component/pagination/Pagination";
 import Filters from "./Filters";
 import ArticleCard from "./ArticleCard";
-import { PAGE_SIZE } from "@/lib/constants/base";
+import { PAGE_SIZE } from "@/src/lib/contants";
 
 // Types
 interface Article {

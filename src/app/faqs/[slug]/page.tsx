@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { apiGet } from "@/lib/api/ApiService";
+import { apiGet } from "@/src/services/ApiService";
 import { ArrowLeft, Calendar, Clock, Eye } from "lucide-react";
-import YouTubeEmbed from "@/component/shared/YouTubeEmbed";
-import ShareMenu from "@/component/shared/SharedMenu";
+import YouTubeEmbed from "@/src/component/shared/YouTubeEmbed";
+import ShareMenu from "@/src/component/shared/SharedMenu";
 
 // Types
 interface Article {

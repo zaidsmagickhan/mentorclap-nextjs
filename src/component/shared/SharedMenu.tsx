@@ -32,6 +32,7 @@ export default function ShareMenu({
     const [isOpen, setIsOpen] = useState(false);
     const [copied, setCopied] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
     // Close menu when clicking outside
     useEffect(() => {

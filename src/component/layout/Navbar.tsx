@@ -43,6 +43,12 @@ export default async function Navbar() {
                             >
                                 FAQs
                             </Link>
+                            <Link
+                                href="/contact-us"
+                                className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+                            >
+                                Contact Us
+                            </Link>
                             {/* <Link
                                 href="/dashboard"
                                 className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
