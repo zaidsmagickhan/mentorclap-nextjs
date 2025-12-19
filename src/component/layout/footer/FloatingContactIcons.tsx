@@ -1,21 +1,24 @@
-import { Phone } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Phone } from "lucide-react";
+import { useRouter } from "next/router";
+import { FaWhatsapp } from "react-icons/fa";
 
 const FloatingContactIcons = () => {
-    const navigate = useNavigate();
+    const router = useRouter();
 
     // Replace with your actual WhatsApp number (without + or spaces)
-    const whatsappNumber = '919449938466' // Example: 91 for India code
-    const whatsappMessage = 'Hello! I would like to get more information about your tutoring services.';
+    const whatsappNumber = "919449938466"; // Example: 91 for India code
+    const whatsappMessage =
+        "Hello! I would like to get more information about your tutoring services.";
 
     const handleWhatsAppClick = () => {
-        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-        window.open(url, '_blank');
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+            whatsappMessage
+        )}`;
+        window.open(url, "_blank");
     };
 
     const handleContactClick = () => {
-        navigate('/contact-us');
+        router.push("/contact-us");
     };
 
     return (
