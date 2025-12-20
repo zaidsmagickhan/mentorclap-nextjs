@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { apiGet } from "@/src/services/ApiService";
-import Pagination from "@/src/component/pagination/Pagination";
+import { apiGet } from "@/services/ApiService";
+import Pagination from "@/component/pagination/Pagination";
 import SearchForm from "./SearchForm";
-import { PAGE_SIZE } from "@/src/lib/contants";
+import { PAGE_SIZE } from "@/lib/contants";
 
 // Types for TypeScript
 interface Blog {

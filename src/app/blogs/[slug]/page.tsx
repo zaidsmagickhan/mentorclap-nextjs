@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { apiGet } from "@/src/services/ApiService";
+import { apiGet } from "@/services/ApiService";
 import { ArrowLeft } from "lucide-react";
-import ShareMenu from "@/src/component/shared/SharedMenu";
+import ShareMenu from "@/component/shared/SharedMenu";
 
 // Types
 interface Blog {

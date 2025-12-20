@@ -117,6 +117,7 @@ export default function Filters({
         setSearchTerm("");
         if (searchTerm !== lastAppliedSearch.current) {
             applyFilters("", categoryFilter);
+            router.push("/faqs", { scroll: false });
         }
     };
 
@@ -125,6 +126,7 @@ export default function Filters({
         setCategoryFilter("");
         if (categoryFilter !== lastAppliedCategory.current) {
             applyFilters(searchTerm, "");
+            router.push("/faqs", { scroll: false });
         }
     };
 

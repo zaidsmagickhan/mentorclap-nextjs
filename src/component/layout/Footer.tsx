@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Youtube, Twitter } from "lucide-react";
-import { useAuth } from "@/src/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import CTAFooter from "./footer/CTAFooter";
 import BangaloreBasedTutors from "./footer/BangaloreBasedTutors";
 import TuitionCategoriesSection from "./footer/TuitionCategoriesSection";

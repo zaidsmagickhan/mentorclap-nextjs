@@ -10,7 +10,7 @@ import {
 } from "react";
 import { jwtDecode } from "jwt-decode";
 import { useRouter } from "next/navigation";
-import { setToken, clearToken, apiGet } from "@/src/services/ApiService";
+import { setToken, clearToken, apiGet } from "@/services/ApiService";
 
 // Types for TypeScript
 interface User {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
-import { apiPost } from "@/src/services/ApiService";
+import { apiPost } from "@/services/ApiService";
 import { useSnackbar } from "notistack";
 
 interface ContactFormData {
