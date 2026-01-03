@@ -9,7 +9,7 @@ export interface StudentEnquiry {
     board?: string;
     study_mode: string;
     status: string;
-    created_at: string
+    created_at: string;
     updated_at: string;
     coins_reduced: number;
     coins_required: number;
@@ -57,4 +57,38 @@ export interface EnquiryCardEnquiry {
         country?: string;
     };
     [key: string]: any;
+}
+
+export interface StudentEnquiryDetail {
+    id: number;
+    name: string;
+    class_level: string;
+    custom_class?: string;
+    subject: string;
+    custom_subject?: string;
+    board: string;
+    study_mode: string;
+    user_budget: number;
+    responded_count: number;
+    total_responses: number;
+    days_left: number;
+    posted_at: string;
+    archived: boolean;
+    address: {
+        city: string;
+        state: string;
+        country: string;
+    };
+    user: {
+        phone_number: string;
+        email: string;
+        full_name?: string;
+        [key: string]: any;
+    };
+    [key: string]: any;
+}
+
+export interface ArchiveResponse {
+    success: boolean;
+    message?: string;
 }
