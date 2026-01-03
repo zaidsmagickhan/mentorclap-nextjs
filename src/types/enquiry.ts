@@ -64,3 +64,42 @@ export interface ApiResponse<T> {
 export interface StarResponse {
     status: "starred" | "unstarred";
 }
+
+// Contacted enquiry
+
+export interface ContactedEnquiry {
+    id: number;
+    name: string;
+    class_level: string;
+    subject: string;
+    study_mode: string;
+    coins_reduced: number;
+    coins_required: number;
+    days_left: number;
+    responded_count: number;
+    total_responses: number;
+    time_ago: string;
+    viewed: boolean;
+    is_starred: boolean;
+    image?: string;
+    address?: {
+        city: string;
+        state: string;
+        country?: string;
+    };
+    [key: string]: any;
+}
+
+export interface ContactedEnquiriesResponse {
+    results: ContactedEnquiry[];
+    count: number;
+    next: string | null;
+    previous: string | null;
+}
+
+export interface PaginationData {
+    count: number;
+    currentPage: number;
+    totalPages: number;
+}
+
