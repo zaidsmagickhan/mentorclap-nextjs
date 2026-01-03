@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import EnquiryDetail from "./EnquiryDetail";
 
 interface EnquiryPageProps {
-    params: {
-        id: string;
-    };
+    params: Promise<{
+        id: number;
+    }>;
 }
 
 export async function generateMetadata({
     params,
 }: EnquiryPageProps): Promise<Metadata> {
+    const resolvedParams = await params;
     return {
-        title: `Enquiry #${params.id} - MentorClap`,
-        description: `View detailed information about enquiry #${params.id}. Contact the student directly for more information.`,
+        title: `Enquiry #${resolvedParams.id} - MentorClap`,
+        description: `View detailed information about enquiry #${resolvedParams.id}. Contact the student directly for more information.`,
     };
 }
 
