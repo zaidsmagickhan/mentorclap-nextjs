@@ -1,10 +1,27 @@
 "use client";
 
 import { useAuth } from "@/context/AuthContext";
+import { fetchCoins } from "@/services/api/navbar";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
     const { user, authChecked, loading, logoutUser } = useAuth();
+    const [coins, setCoins] = useState(0);
+
+    useEffect(() => {
+        const getCoins = async () => {
+            try {
+                const res = await fetchCoins();
+                console.log("Coin Response", res);
+                setCoins(res.coins);
+            } catch (error) {
+                console.error("Error: ", error);
+            }
+        };
+
+        if (user && user.role === "teacher") getCoins();
+    }, [user]);
 
     return (
         <nav className="bg-white shadow-sm border-b border-gray-200">
@@ -12,12 +29,32 @@ export default function Navbar() {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div className="shrink-0">
-                        <Link
-                            href="/"
-                            className="text-2xl font-bold text-gray-800 hover:text-gray-600"
-                        >
-                            Logo
-                        </Link>
+                        {user ? (
+                            <Link
+                                href="/dashboard"
+                                className="flex items-center gap-1 text-2xl font-bold"
+                            >
+                                <img
+                                    src="/brand-logo.jpeg"
+                                    alt="Brand Logo"
+                                    className="h-10 w-auto rounded-md"
+                                />
+                                MentorClap
+                            </Link>
+                        ) : (
+                            <Link
+                                href="/"
+                                className="flex items-center gap-2 text-2xl font-bold"
+                            >
+                                <img
+                                    src="/brand-logo.jpeg"
+                                    alt="Brand Logo"
+                                    className="h-10 w-auto rounded-md"
+                                />
+                                MentorClap
+                            </Link>
+                        )}
+                        {/* </Link> */}
                     </div>
 
                     {/* Desktop Navigation */}
@@ -64,14 +101,17 @@ export default function Navbar() {
                             // Authenticated User UI
                             <div className="flex items-center space-x-4 border-l border-gray-200 pl-6 ml-2">
                                 {/* Coins Display */}
-                                <div className="flex items-center space-x-2 bg-yellow-50 px-3 py-1 rounded-full border border-yellow-200">
-                                    <span className="text-yellow-600 font-semibold text-sm">
-                                        {user.coins || 0}
-                                    </span>
-                                    <span className="text-yellow-500 text-sm">
-                                        coins
-                                    </span>
-                                </div>
+                                {user.role === "teacher" && (
+                                    <div className="flex items-center space-x-1 bg-yellow-50 px-3 py-1 rounded-full">
+                                        <span className="text-yellow-600 font-semibold text-sm">
+                                            {/* {user.coins || 0} */}
+                                            {coins}
+                                        </span>
+                                        <span className="text-yellow-500 text-sm">
+                                            coins
+                                        </span>
+                                    </div>
+                                )}
 
                                 {/* User Avatar & Dropdown */}
                                 <div className="relative group">
