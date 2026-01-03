@@ -102,15 +102,16 @@ export default function Navbar() {
                             <div className="flex items-center space-x-4 border-l border-gray-200 pl-6 ml-2">
                                 {/* Coins Display */}
                                 {user.role === "teacher" && (
-                                    <div className="flex items-center space-x-1 bg-yellow-50 px-3 py-1 rounded-full">
-                                        <span className="text-yellow-600 font-semibold text-sm">
-                                            {/* {user.coins || 0} */}
-                                            {coins}
-                                        </span>
-                                        <span className="text-yellow-500 text-sm">
-                                            coins
-                                        </span>
-                                    </div>
+                                    <Link href={"/teacher/upgrade-plan"}>
+                                        <div className="flex items-center space-x-1 bg-yellow-50 px-3 py-1 rounded-full">
+                                            <span className="text-yellow-600 font-semibold text-sm">
+                                                {coins}
+                                            </span>
+                                            <span className="text-yellow-500 text-sm">
+                                                coins
+                                            </span>
+                                        </div>
+                                    </Link>
                                 )}
 
                                 {/* User Avatar & Dropdown */}
