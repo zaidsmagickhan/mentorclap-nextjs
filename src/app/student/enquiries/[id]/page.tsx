@@ -4,17 +4,18 @@ import StudentEnquiryDetail from "./StudentEnquiryDetail";
 import LoaderMinimal from "@/component/loader/LoaderMinimal";
 
 interface StudentEnquiryDetailPageProps {
-    params: {
-        id: string;
-    };
+    params: Promise<{
+        id: number;
+    }>;
 }
 
 export async function generateMetadata({
     params,
 }: StudentEnquiryDetailPageProps): Promise<Metadata> {
+    const resolvedParams = await params;
     return {
-        title: `Enquiry #${params.id} Details - MentorClap`,
-        description: `View detailed information about your enquiry #${params.id} on MentorClap.`,
+        title: `Enquiry #${resolvedParams.id} Details - MentorClap`,
+        description: `View detailed information about your enquiry #${resolvedParams.id} on MentorClap.`,
     };
 }
 
