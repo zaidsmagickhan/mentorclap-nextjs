@@ -97,6 +97,37 @@ const authApiSlice = apiSlice.injectEndpoints({
 				body: { uid, token, new_password, re_new_password },
 			}),
 		}),
+		sendRegistrationOtp: builder.mutation({
+			query: ({ country_code, phone_number }) => ({
+				url: "/v2/auth/send-otp/",
+				method: "POST",
+				body: {
+					country_code,
+					phone_number,
+				},
+			}),
+		}),
+		verifyRegistrationOtpAndCreateUser: builder.mutation({
+			query: ({
+				country_code,
+				phone_number,
+				first_name,
+				last_name,
+				role,
+				otp,
+			}) => ({
+				url: "/v2/auth/verify-otp/",
+				method: "POST",
+				body: {
+					country_code,
+					phone_number,
+					first_name,
+					last_name,
+					role,
+					otp,
+				},
+			}),
+		}),
 	}),
 });
 
@@ -110,4 +141,6 @@ export const {
 	useActivationMutation,
 	useResetPasswordMutation,
 	useResetPasswordConfirmMutation,
+	useSendRegistrationOtpMutation,
+	useVerifyRegistrationOtpAndCreateUserMutation,
 } = authApiSlice;
