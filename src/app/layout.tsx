@@ -11,7 +11,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: "Welcome - MentorClap",
+	title: {
+		template: "%s | Mentorclap",
+		default: "Welcome - Mentorclap",
+	},
 	description: "Find the best tutor for your child",
 };
 

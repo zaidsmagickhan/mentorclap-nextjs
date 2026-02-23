@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { LoginForm } from "@/components/forms";
 import { Metadata } from "next";
-import { SocialButtons } from "@/components/common";
+import { SocialButtons, LoginWrapper } from "@/components/common";
 
 export const metadata: Metadata = {
-	title: "MentorClap | Login",
-	description: "Login here",
+	title: "Login",
+	description: "Login to your account",
 };
 
 export default function Page() {
@@ -22,10 +21,10 @@ export default function Page() {
 				</h2>
 			</div>
 
-			<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-				<LoginForm />
+			<div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
+				<LoginWrapper />
 				<SocialButtons />
-				
+
 				<p className="mt-10 text-center text-sm/6 text-gray-500">
 					Don&apos;t have an account?{" "}
 					<Link

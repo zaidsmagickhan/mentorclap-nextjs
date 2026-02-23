@@ -1,6 +1,6 @@
 "use client";
 
-import { useRegister } from "@/hooks";
+import { useRegisterEmail } from "@/hooks";
 import { Form } from "@/components/forms";
 
 export default function RegisterForm() {
@@ -13,7 +13,7 @@ export default function RegisterForm() {
 		isLoading,
 		onChange,
 		onSubmit,
-	} = useRegister();
+	} = useRegisterEmail();
 
 	const config = [
 		{

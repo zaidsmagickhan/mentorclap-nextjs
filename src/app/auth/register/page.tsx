@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { RegisterForm } from "@/components/forms";
 import { Metadata } from "next";
 import { SocialButtons } from "@/components/common";
+import { RegistrationWrapper } from "@/components/common";
 
 export const metadata: Metadata = {
-	title: "MentorClap | Register",
-	description: "Register here to create your account",
+	title: "Sign Up",
+	description: "Create your account using Email or Phone number",
 };
 
 export default function Page() {
@@ -22,8 +22,8 @@ export default function Page() {
 				</h2>
 			</div>
 
-			<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-				<RegisterForm />
+			<div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
+				<RegistrationWrapper />
 				<SocialButtons />
 
 				<p className="mt-10 text-center text-sm/6 text-gray-500">

@@ -1,8 +1,11 @@
 export { default as AuthHandler } from "./AuthHandler";
+export { default as AuthToggle } from "./AuthToggle";
 export { default as Footer } from "./Footer";
 export { default as Navbar } from "./Navbar";
 export { default as List } from "./List";
+export { default as LoginWrapper } from "./LoginWrapper";
 export { default as NavLink } from "./NavLink";
+export { default as RegistrationWrapper } from "./RegistrationWrapper";
 export { default as SocialButton } from "./SocialButton";
 export { default as SocialButtons } from "./SocialButtons";
 export { default as Spinner } from "./Spinner";

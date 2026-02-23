@@ -3,7 +3,7 @@
 import { useLogin } from "@/hooks";
 import { Form } from "@/components/forms";
 
-export default function LoginForm() {
+export default function LoginEmailForm() {
 	const { email, password, isLoading, onChange, onSubmit } = useLogin();
 
 	const config = [

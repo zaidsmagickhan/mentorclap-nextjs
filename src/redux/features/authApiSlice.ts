@@ -7,6 +7,17 @@ interface User {
 	role: string;
 }
 
+interface PendingRegistrationData {
+	first_name: string;
+	last_name: string;
+	role: string;
+}
+
+interface PendingRegistrationParams {
+	phone_number: string;
+	country_code: string;
+}
+
 interface SocialAuthArgs {
 	provider: string;
 	state: string;
@@ -97,35 +108,82 @@ const authApiSlice = apiSlice.injectEndpoints({
 				body: { uid, token, new_password, re_new_password },
 			}),
 		}),
-		sendRegistrationOtp: builder.mutation({
-			query: ({ country_code, phone_number }) => ({
-				url: "/v2/auth/send-otp/",
+		requestPhoneRegistrationOtp: builder.mutation({
+			query: ({
+				first_name,
+				last_name,
+				role,
+				country_code,
+				phone_number,
+			}) => ({
+				url: "/v2/auth/request-phone-otp/",
 				method: "POST",
 				body: {
+					first_name,
+					last_name,
+					role,
 					country_code,
 					phone_number,
 				},
 			}),
 		}),
 		verifyRegistrationOtpAndCreateUser: builder.mutation({
-			query: ({
-				country_code,
-				phone_number,
-				first_name,
-				last_name,
-				role,
-				otp,
-			}) => ({
-				url: "/v2/auth/verify-otp/",
+			query: ({ phone_number, otp }) => ({
+				url: "/v2/auth/verify-phone-otp/",
 				method: "POST",
 				body: {
-					country_code,
 					phone_number,
-					first_name,
-					last_name,
-					role,
 					otp,
 				},
+			}),
+		}),
+		getPendingRegistrationData: builder.query<
+			PendingRegistrationData,
+			PendingRegistrationParams
+		>({
+			query: ({ phone_number, country_code }) => ({
+				url: `/v2/auth/pending-registration/?phone_number=${encodeURIComponent(phone_number)}&country_code=${encodeURIComponent(country_code)}`,
+				method: "GET",
+			}),
+		}),
+		loginRequestOTP: builder.mutation({
+			query: ({ phone_number, country_code }) => ({
+				url: "/v2/auth/login-request-otp/",
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: { phone_number, country_code },
+			}),
+		}),
+		loginVerifyOTP: builder.mutation({
+			query: ({ phone_number, country_code, otp }) => ({
+				url: "/v2/auth/login-verify-otp/",
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: { phone_number, country_code, otp },
+			}),
+		}),
+		addPhoneRequest: builder.mutation({
+			query: ({ phone_number, country_code }) => ({
+				url: "/v2/auth/add-phone-request/",
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: { phone_number, country_code },
+			}),
+		}),
+		addPhoneVerify: builder.mutation({
+			query: (otp) => ({
+				url: "/v2/auth/add-phone-request/",
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: otp,
 			}),
 		}),
 	}),
@@ -141,6 +199,11 @@ export const {
 	useActivationMutation,
 	useResetPasswordMutation,
 	useResetPasswordConfirmMutation,
-	useSendRegistrationOtpMutation,
+	useRequestPhoneRegistrationOtpMutation,
 	useVerifyRegistrationOtpAndCreateUserMutation,
+	useGetPendingRegistrationDataQuery,
+	useLoginRequestOTPMutation,
+	useLoginVerifyOTPMutation,
+	useAddPhoneRequestMutation,
+	useAddPhoneVerifyMutation,
 } = authApiSlice;

@@ -39,6 +39,7 @@ export default function Form({
 					value={input.value}
 					link={input.link}
 					onChange={onChange}
+					required
 				>
 					{input.labelText}
 				</Input>
